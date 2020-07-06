@@ -1,0 +1,7 @@
+/feed-app-ui/node_modules
+/feed-app-backend/node_modules
+
+feed-app-ui/build
+
+feed-app-backend/media/uploads/*
+!feed-app-backend/media/uploads/.gitkeep
