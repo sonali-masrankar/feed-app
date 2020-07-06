@@ -3,7 +3,7 @@ User feed appplication with Node and React
 
 ### Feed Application built using ReactJS and NodeJS
 
-This project includes login/signup, video/image upload, ability to share posts amongst users on the platform.
+This project includes user creation, video/image upload, ability to share posts amongst users on the platform.
 Posts are displayed such that latest posts appears first. Seach functionality is available to filter posts by username, text
 
 #### How to start the Feed Application?
