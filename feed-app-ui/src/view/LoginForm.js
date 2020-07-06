@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import { Button, Form, Modal } from 'semantic-ui-react'
+import { Button, Form, Modal, Header } from 'semantic-ui-react'
 
 const LoginForm = (props) => {
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    userName: '',
+    password: ''
+  })
   const [authFailure, setAuthFailure] = useState(false)
   const {
     toggleSignIn,
@@ -42,6 +45,7 @@ const LoginForm = (props) => {
           <Button onClick={handleModalClose} content='OK' />
         </Modal.Actions>
       </Modal>
+      <Header className='formHeader' as='h2' content='Login' />
       <Form inverted>
         <Form.Input {...commonProps} value={formData.userName} name='userName' label='Username' placeholder='Enter username' />
         <Form.Input {...commonProps} value={formData.password} name='password' label='Password' type='password' placeholder='********' />

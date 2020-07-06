@@ -20,6 +20,9 @@ code {
   padding-bottom: 5rem;
   margin-top: 4rem;
 }
+.login .formHeader.ui.header {
+  color: white;
+}
 
 .feeds .mainHeader {
   background-color: #2185d0;

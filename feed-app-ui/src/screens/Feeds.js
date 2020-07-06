@@ -42,11 +42,11 @@ const Feeds = (props) => {
   const { userName, firstName, lastName } = user
   return (
     <div className='feeds'>
-      <div className='mainHeader' color='white' as='h2'>
-        <Header as='h3' color='white' floated='right'>
+      <div className='mainHeader'>
+        <Header as='h3' floated='right'>
           <Input onChange={onSearch} size='small' icon='search' placeholder='username, text search' />
         </Header>
-        <Header as='h2' color='white' floated='left'>
+        <Header as='h2' floated='left'>
           <Icon name='user' />
           Feed App
         </Header>

@@ -5,7 +5,6 @@ export const loadPosts = async (state, dispatch, payload) => {
   dispatch({ type: 'setLoading' })
   try {
     const response = await axios.get(`${config.serverUrl}/api/posts/get`)
-    console.log('posts', response)
     dispatch({ type: 'updatePosts', payload: { allPosts: response.data.posts } })
   } catch (err) {
     dispatch({ type: 'resetLoading' })

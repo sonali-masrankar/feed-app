@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import { Button, Form, Modal } from 'semantic-ui-react'
+import { Button, Form, Modal, Header } from 'semantic-ui-react'
 
 const SignUpForm = (props) => {
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    userName: '',
+    password: '',
+    firstName: '',
+    lastName: ''
+  })
   const [submitResponse, setSubmitResponse] = useState()
   const {
     toggleSignIn,
@@ -45,6 +50,7 @@ const SignUpForm = (props) => {
           <Button onClick={handleModalClose} content='OK' />
         </Modal.Actions>
       </Modal>
+      <Header className='formHeader' as='h2' content='Register' />
       <Form inverted>
         <Form.Input {...commonProps} value={formData.firstName} name='firstName' label='First name' placeholder='Enter first name' />
         <Form.Input {...commonProps} value={formData.lastName} name='lastName' label='Last name' placeholder='Enter last name' />
@@ -53,9 +59,9 @@ const SignUpForm = (props) => {
         <Button.Group floated='left'>
           <Button type='submit' onClick={onSubmit} content='SUBMIT' />
         </Button.Group>
-        <Button.Group floated='right'>
+        {/* <Button.Group floated='right'>
           <Button onClick={toggleSignIn} inverted content='SIGN IN' />
-        </Button.Group>
+        </Button.Group> */}
       </Form>
     </div>
   )

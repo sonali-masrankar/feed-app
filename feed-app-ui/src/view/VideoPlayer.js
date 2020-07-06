@@ -26,10 +26,6 @@ class VideoPlayer extends React.Component {
             }]
           }
         }, () => {
-          console.log('-')
-          console.log(this.videoNode)
-          console.log('-')
-          console.log(this.state.videoJsOptions)
           this.player = videojs(this.videoNode, this.state.videoJsOptions, function onPlayerReady () {
           // console.log('onPlayerReady', this)
           })
