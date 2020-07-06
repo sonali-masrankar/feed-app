@@ -4,4 +4,3 @@
 feed-app-ui/build
 
 feed-app-backend/media/uploads/*
-!feed-app-backend/media/uploads/.gitkeep
