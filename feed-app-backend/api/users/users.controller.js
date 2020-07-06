@@ -1,5 +1,8 @@
 var Users = require('./users.dao')
 var bcrypt = require('bcrypt')
+
+// use async await to avoid the callback hell
+
 exports.registerUser = function (req, res, next) {
   var body = req.body
 
@@ -13,36 +16,37 @@ exports.registerUser = function (req, res, next) {
         return res.status(409).json({
           message: 'User already exists'
         })
+      } else {
+        // If user doesn't already exists, we go ahead and generate a new user
+        bcrypt.hash(body.password, 10, (err, hash) => {
+          if (err) {
+            console.log(err)
+            return res.status(500).json({
+              error: err
+            })
+          } else {
+            Users.create({
+              userName: body.userName,
+              firstName: body.firstName,
+              lastName: body.lastName,
+              password: hash
+            }, function (err, user) {
+              if (err) {
+                return res.json({
+                  error: err
+                })
+              } else {
+                return res.status(201).json({
+                  message: 'User created successfully'
+                })
+              }
+            })
+          }
+        })
       }
     }
   })
 
-  // If user doesn't already exists, we go ahead and generate a new user
-  bcrypt.hash(body.password, 10, (err, hash) => {
-    if (err) {
-      console.log(err)
-      return res.status(500).json({
-        error: err
-      })
-    } else {
-      Users.create({
-        userName: body.userName,
-        firstName: body.firstName,
-        lastName: body.lastName,
-        password: hash
-      }, function (err, user) {
-        if (err) {
-          res.json({
-            error: err
-          })
-        } else {
-          res.status(201).json({
-            message: 'User created successfully'
-          })
-        }
-      })
-    }
-  })
 }
 
 exports.userSignin = function (req, res, next) {

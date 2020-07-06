@@ -8,6 +8,7 @@ export const loadPosts = async (state, dispatch, payload) => {
     console.log('posts', response)
     dispatch({ type: 'updatePosts', payload: { allPosts: response.data.posts } })
   } catch (err) {
+    dispatch({ type: 'resetLoading' })
     console.log(err)
   }
 }
@@ -22,6 +23,7 @@ export const createTextPost = async (state, dispatch, payload) => {
     return 'success'
   } catch (err) {
     console.log(err)
+    dispatch({ type: 'resetLoading' })
     return 'failure'
   }
 }
@@ -34,6 +36,7 @@ export const registerUser = async (state, dispatch, payload) => {
     return 'success'
   } catch (err) {
     console.log(err)
+    dispatch({ type: 'resetLoading' })
     return 'failure'
   }
 }
@@ -45,6 +48,7 @@ export const userLogin = async (state, dispatch, payload) => {
     dispatch({ type: 'setUser', payload: { user: userResponse.data.user } })
   } catch (err) {
     console.log(err)
+    dispatch({ type: 'resetLoading' })
     return 'failure'
   }
 }

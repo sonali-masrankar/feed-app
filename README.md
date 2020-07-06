@@ -14,8 +14,10 @@ $ git clone https://github.com/sonali-masrankar/feed-app.git
 $ cd feed-app
 $ cd feed-app-backend
 $ sudo service mongod start
+$ npm install
 $ npm start
 $ cd ../feed-app-ui
+$ npm install
 $ npm start
 ```
 
